@@ -18,21 +18,18 @@ $ sudo apt update
 $ sudo apt install kubectl -y
 ```
 
-* minikube
+* kind
 ```
-$ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-arm64
-$ chmod +x ./minikube
-$ sudo install minikube-linux-arm64 /usr/local/bin/
+$ curl -Lo ./kind https://kind.sigs.k8s.io/dl/latest/kind-linux-amd64
+$ chmod +x ./kind
+$ sudo install kind /usr/local/bin/
+```
+
+* docker:
+```
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 </br>
-
-* Virtualizador: </br>
-*Estou procurando uma solução para o virtualizador.*</br>
-*O virtualbox apresenta problemas com a configuração de network:*
-```
-Error setting up host only network on machine start: /usr/bin/VBoxManage hostonlyif ipconfig vboxnet2 --ip 192.168.99.1 --netmask 255.255.255.0 failed:
-```
-
 
 ### Versões
 ---
@@ -50,17 +47,16 @@ Client Version: v1.28.4
 Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
 ```
 
-3. minikube:
+3. kind:
 ```
-$ minikube version
-minikube version: v1.12.1
-commit: 5664228288552de9f3a446ea4f51c6f29bbdd0e0-dirty
+$ kind --version
+kind version 0.21.0-alpha+5549e9178ed153
 ```
 
-4. virtualbox:
+4. docker:
 ```
-$ vboxmanage -v | cut -dr -f1
-7.0.12
+$ docker -v
+Docker version 24.0.7, build afdd53b
 ```
 </br>
 
@@ -68,5 +64,5 @@ $ vboxmanage -v | cut -dr -f1
 ---
 
 ```
-$ minikube start --vm-driver=virtualbox
+$ kind create cluster
 ```
