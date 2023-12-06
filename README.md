@@ -1,6 +1,8 @@
 ## k8s-alura
 Curso de Kubernetes na Alura.
 
+* Livro Gratuito para estudo de Kubernetes: <a href="https://livro.descomplicandokubernetes.com.br/pt/">LINUXtips</a>
+
 
 ### Dependências
 ---
