@@ -13,7 +13,7 @@ $ sudo apt install -y apt-transport-https
 $ curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
 $ echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 $ sudo apt update
-$ sudo apt install kubectl
+$ sudo apt install kubectl -y
 ```
 
 * minikube
@@ -22,13 +22,15 @@ $ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linu
 $ chmod +x ./minikube
 $ sudo install minikube-linux-arm64 /usr/local/bin/
 ```
-
-* virtualbox
-```
-$ wget https://download.virtualbox.org/virtualbox/7.0.12/virtualbox-7.0_7.0.12-159484~Debian~bookworm_amd64.deb
-$ sudo dpkg -i virtualbox-7.0_7.0.12-159484~Debian~bookworm_amd64.deb
-```
 </br>
+
+* Virtualizador: </br>
+*Estou procurando uma solução para o virtualizador.*</br>
+*O virtualbox apresenta problemas com a configuração de network:*
+```
+Error setting up host only network on machine start: /usr/bin/VBoxManage hostonlyif ipconfig vboxnet2 --ip 192.168.99.1 --netmask 255.255.255.0 failed:
+```
+
 
 ### Versões
 ---
@@ -51,6 +53,12 @@ Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
 $ minikube version
 minikube version: v1.12.1
 commit: 5664228288552de9f3a446ea4f51c6f29bbdd0e0-dirty
+```
+
+4. virtualbox:
+```
+$ vboxmanage -v | cut -dr -f1
+7.0.12
 ```
 </br>
 
